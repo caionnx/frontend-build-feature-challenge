@@ -12,7 +12,7 @@ import replace from '@rollup/plugin-replace';
 export default {
   input: 'index.js',
   output: {
-    file: 'sequra-installments-component.bundled.js',
+    file: 'index.bundled.js',
     format: 'esm',
   },
   onwarn(warning) {

@@ -27,7 +27,9 @@
         "strict": true
       }
     ],
-    "types": ["mocha"]
+    "types": ["mocha"],
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"],
   "exclude": []

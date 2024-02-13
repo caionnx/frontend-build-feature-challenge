@@ -5,7 +5,7 @@ custom-elements.json
 # top level source
 index.js
 index.js.map
-sequra-installments-component.d.ts
-sequra-installments-component.d.ts.map
+index.d.ts
+index.d.ts.map
 # only generated for size check
-sequra-installments-component.bundled.js
+index.bundled.js

@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rimraf sequra-installments-component.{d.ts,d.ts.map,js,js.map} test/sequra-installments-component.{d.ts,d.ts.map,js,js.map} test/sequra-installments-component_test.{d.ts,d.ts.map,js,js.map}",
+    "clean": "rimraf index.{d.ts,d.ts.map,js,js.map} test/index.{d.ts,d.ts.map,js,js.map} test/index_test.{d.ts,d.ts.map,js,js.map}",
     "lint": "npm run lint:lit-analyzer && npm run lint:eslint",
     "lint:eslint": "eslint 'src/**/*.ts'",
     "lint:lit-analyzer": "lit-analyzer",
@@ -18,7 +18,7 @@
     "docs:clean": "rimraf docs",
     "docs:gen": "eleventy --config=.eleventy.cjs",
     "docs:gen:watch": "eleventy --config=.eleventy.cjs --watch",
-    "docs:build": "rollup -c --file docs/sequra-installments-component.bundled.js",
+    "docs:build": "rollup -c --file docs/index.bundled.js",
     "docs:assets": "cp node_modules/prismjs/themes/prism-okaidia.css docs/",
     "docs:serve": "wds --root-dir=docs --node-resolve --watch",
     "analyze": "cem analyze --litelement --globs \"src/**/*.ts\"",
@@ -30,7 +30,7 @@
     "test:watch": "wtr --watch",
     "test:prod": "MODE=prod wtr",
     "test:prod:watch": "MODE=prod wtr --watch",
-    "checksize": "rollup -c ; cat sequra-installments-component.bundled.js | gzip -9 | wc -c ; rm sequra-installments-component.bundled.js"
+    "checksize": "rollup -c ; cat index.bundled.js | gzip -9 | wc -c ; rm index.bundled.js"
   },
   "keywords": [
     "web-components",
@@ -41,6 +41,7 @@
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@lit/task": "^1.0.0",
     "lit": "^3.0.0"
   },
   "devDependencies": {
@@ -58,6 +59,7 @@
     "@web/test-runner-playwright": "^0.9.0",
     "@webcomponents/webcomponentsjs": "^2.8.0",
     "eslint": "^8.15.0",
+    "fetch-mock": "^9.11.0",
     "lit-analyzer": "^1.2.1",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
