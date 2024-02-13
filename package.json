@@ -1,0 +1,11 @@
+{
+  "name": "sequra-front-end-test",
+  "description": "This package exists to support the development of the feature by enabling the serve of merchant's product page",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "web-dev-server --node-resolve --watch --open"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.4.2"
+  }
+}
