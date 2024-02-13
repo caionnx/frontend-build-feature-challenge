@@ -1,40 +1,40 @@
-This is the coding challenge for people who applied to a frontend developer position at seQura. It's been designed to be a simplified version of the same problems we deal with.
+# seQura front end - Caio Nunes
+For extra documentation on the development experience and how to test/lint/formatting and bundle the component, please refer to `sequra-installments-component/README.MD`
+## Engineering choices
+- Web Component was the main technology of choice to develop such feature
+    - Based on the scope of the module this was the best option due to the unknown nature of the merchant's site implementation.
+    - With a web component we are not bound to a specific framework and we can keep a very small footprint on the merchant's web applications.
+    - Integration comes easily as web components are supported in all major frameworks (we could build a react wrapper with Lit). https://custom-elements-everywhere.com/
+    - We can scope all of our styling and logic in a specific place and grow in features in the future.
+- Lit was a choice of library to develop such a web component.
+    - Due to time constraints this seems to be a pertinent choice and using the starter kit we kick off with an environment for development using  Typescript, Unit Testing, and a small server of our generated files.
+    - This took off a good chunk of time we would have spent on setting up the project.
+    - With such a choice the development experience also benefitted from linting and formatting which are aspects very important when developing components.
+- Lit task package was also added to handle fetching data robustly:
+    - It gives us the ability to easily handle different states of a fetching task: pending, error, success, etc.
+    - It also deals with racing conditions, it will take care of such scenarios and abort fetch requests using the signal approach.
+- The main drawback of the web component as the base for our component is on the server side as we may not be able to render content in such a scenario, leading to a different approach/responsibility on the merchant side to avoid visual jumps on the client side rendering (and CLS).
+- The visual aspect of the prototype was not my focus.
 
-## Context
+## Future Improvements
+- Add localization. (Lit also has a library for this).
+- Investigate approaches for rendering the component on the server side or approaches to mitigate visual jumps.
+- Styling improvements (and handling focus when opening and closing the modal for a11y reasons).
+- Improve component documentation and set up GitHub pages for easier integration on merchants' websites.
 
-seQura provides e-commerce shops with a flexible payment method that allows shoppers to split their purchases in differents installments depending on the product price. In exchange, seQura earns a fee for each purchase.
-
-This challenge is about implementing a widget in a merchant site demo so the shoppers can select how many instalments they like to pay with.
-
-## Problem statement
-
-SeQura provides e-commerce shops (Merchants) a flexible payment method so their customers (Shoppers) can purchase the goods by paying in instalments. SeQura has analysed, that this kind of payment method requires the biggest effort in promotion by part of the merchant to make a difference in purchases quantity and average amount.
-
-As part of our the product iteration process, the Product Designer from the team has made a wireframe and now is asking you to implement a widget to display the instalments options for a given product, on a merchant page. The Product Designer is also very interested in analysing any shopper interaction with the widget so the team can improve it in future iterations.
-
-We expect you to:
-
-1. Create the prototype for the wireframe that the Product Designer has given you (`wireframe.png`).
-   * Integrate the prototype with seQura `CreditAgreementAPI` ([Credit Agreements docs](api/README.md#credit-agreements-api)) to fetch financing information for a given product value.
-   * Integrate the prototype with seQura `EventsAPI` ([Events docs](api/README.md#events-api)) triggering an event for each shopper interaction.
-2. Integrate the prototype in the merchant sample site (`merchant-site/product-page.html`) so that every time the product price changes the financing value is updated.
-3. Write up a paragraph with the way you would distribute this prototype to all our merchants.
-
-![Design Wireframe](wireframe.png)
-_Widget design wireframe given by the Product Designer._
-
-## Instructions
-
-Please read carefully the challenge and if you have any doubt or need extra info please don't hesitate to ask us before starting.
-- In order to use seQura Mocked API you need to start the server found in the folder `api`. More about [Starting the server](api/README.md#starting-the-server).
-- Create a **README** explaining:
-    1. How to **set up and and run** your solution.
-    2. An explanation of your technical choices, tradeoffs, assumptions you took, etc.
-    3. If you left things aside due to time constraints, explain why and how you would resolve or improve them.
-- You should **consider this code ready for production** as it was a PR to be reviewed by a colleague. Also, commit as if it were a real-world feature.
-- **Design, test, develop and document the code.** It should be a performant, clean, and well-structured solution.
-- You **shouldn't spend more than 3h** on the challenge.
-- Since it's frontend challenge, we expect the code based in JavaScript, but you can code the solution in framework of your choice. Here some technologies we are more familiar (in no particular order): JavaScript, Typescript, React, Web Components.
-- Your **experience level will be taken into consideration** when evaluating.
-
-When completed, send a zip with your README and code, including the `.git` folder to see the commit log, to your hiring contact.
+## Distributing this prototype to all our merchants
+We can distribute our component using NPM as any other package. This way merchants can easily import the component in they're on applications and handle optimizations by themselves. Additionally, a build of our component can be available in a CDN for merchants that do not have a build system in place leveraging the component with a simple script tag directly into their HTML pages.
+## Testing component integration on the merchant's product page
+- Build our web component:
+    - Go to `sequra-installments-component` component folder.
+    - Install dependencies with `npm i`
+    - Build it with `npm run build`
+- Start the API serve:
+    - Go to `api` folder
+    - Install dependencies with `npm i`
+    - Start the server with `npm run start`
+- A simple web dev server was set on the root of the zip file to serve the merchant website
+    - On the root directory install dependencies: `npm i`
+    - Serve with `npm run start`
+    - On the browser go to `http://localhost:8000/merchant-site/product-page.html`
+    - Interacting with the product capacity will trigger an update on our component.
