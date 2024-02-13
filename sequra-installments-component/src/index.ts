@@ -5,6 +5,7 @@ import type {CreditAgreement} from './types';
 import debugResponse from './utils/debug-response';
 
 import './sequra-installments-details-component';
+import {postEventData} from './utils/events';
 import {API_URL} from './utils/constants';
 
 @customElement('sequra-installments-component')
@@ -81,6 +82,16 @@ export class SequraInstallmentsComponent extends LitElement {
   }
 
   private _toggleDetails() {
+    if (this._selectedAgreement) {
+      postEventData(this.debugMode, {
+        context: 'checkoutWidget',
+        type: this._showDetails
+          ? 'simulatorInstallmentCloseDetails'
+          : 'simulatorInstallmentOpenDetails',
+        agreement: this._selectedAgreement,
+      });
+    }
+
     this._showDetails = !this._showDetails;
   }
 
@@ -93,6 +104,14 @@ export class SequraInstallmentsComponent extends LitElement {
       this._agreementsTask.value[selectedIndex]
     ) {
       this._selectedAgreement = this._agreementsTask.value[selectedIndex];
+    }
+
+    if (this._selectedAgreement) {
+      postEventData(this.debugMode, {
+        context: 'checkoutWidget',
+        type: 'simulatorInstalmentChanged',
+        agreement: this._selectedAgreement,
+      });
     }
   }
 }

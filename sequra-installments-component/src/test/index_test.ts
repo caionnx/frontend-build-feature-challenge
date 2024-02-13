@@ -6,6 +6,7 @@ import fetchMock from 'fetch-mock/esm/client.js';
 import mockData from '../utils/debug-response.js';
 
 fetchMock.get('path:/credit_agreements', mockData);
+fetchMock.post('path:/events', {});
 
 async function waitFor(ms = 500) {
   return new Promise((resolve) =>
@@ -51,6 +52,9 @@ suite('sequra-installments-component', () => {
     const button = el.shadowRoot!.querySelector('button')!;
     button.click();
     await el.updateComplete;
+
+    // expects that one event was posted to the API
+    assert.equal(fetchMock.called('path:/events'), true);
 
     const modalShadow = el.shadowRoot!.querySelector(
       'sequra-installments-details-component'
