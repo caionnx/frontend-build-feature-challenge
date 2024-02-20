@@ -1,5 +1,5 @@
 {
-  "name": "sequra-front-end-test",
+  "name": "front-end-test",
   "description": "This package exists to support the development of the feature by enabling the serve of merchant's product page",
   "version": "1.0.0",
   "scripts": {

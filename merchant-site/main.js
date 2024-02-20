@@ -12,7 +12,7 @@ $(document).ready(function() {
     $(".product-capacity").removeClass("ring");
     $(this).addClass("ring"); 
     $("#product-price").html($(this).find("span").attr("data-price"));
-    $("#sequra-component").attr("totalWithTax", $(this).find("span").attr("data-price").replace(' €', ''));
+    $("#component").attr("totalWithTax", $(this).find("span").attr("data-price").replace(' €', ''));
   });
 
   $(".btn-decrement").on("click", function() {

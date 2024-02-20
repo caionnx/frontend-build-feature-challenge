@@ -1,5 +1,11 @@
-# seQura front end - Caio Nunes
-For extra documentation on the development experience and how to test/lint/formatting and bundle the component, please refer to `sequra-installments-component/README.MD`
+# Frontend build feature challenge
+### [👉 Go to the challenge 👈](./CHALLENGE.md)
+
+### 🚀 See the feature in action 🚀
+
+
+For extra documentation on the development experience and how to test/lint/formatting and bundle the component, please refer to `installments-component/README.MD`
+
 ## Engineering choices
 - Web Component was the main technology of choice to develop such feature
     - Based on the scope of the module this was the best option due to the unknown nature of the merchant's site implementation.
@@ -19,14 +25,14 @@ For extra documentation on the development experience and how to test/lint/forma
 ## Future Improvements
 - Add localization. (Lit also has a library for this).
 - Investigate approaches for rendering the component on the server side or approaches to mitigate visual jumps.
-- Styling improvements (and handling focus when opening and closing the modal for a11y reasons).
+- Styling improvements.
 - Improve component documentation and set up GitHub pages for easier integration on merchants' websites.
 
 ## Distributing this prototype to all our merchants
 We can distribute our component using NPM as any other package. This way merchants can easily import the component in they're on applications and handle optimizations by themselves. Additionally, a build of our component can be available in a CDN for merchants that do not have a build system in place leveraging the component with a simple script tag directly into their HTML pages.
 ## Testing component integration on the merchant's product page
 - Build our web component:
-    - Go to `sequra-installments-component` component folder.
+    - Go to `installments-component` component folder.
     - Install dependencies with `npm i`
     - Build it with `npm run build`
 - Start the API serve:

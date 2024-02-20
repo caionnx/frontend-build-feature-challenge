@@ -1,8 +1,7 @@
 {
-  "name": "sequra-challenge-api",
+  "name": "challenge-api",
   "version": "1.0.1",
-  "author": "SeQura Worldwide, S.A.",
-  "description": "SeQura Challenge Credit Agreement API",
+  "description": "Credit Agreement API",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"

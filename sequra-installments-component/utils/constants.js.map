@@ -1,1 +1,0 @@
-{"version":3,"file":"constants.js","sourceRoot":"","sources":["../src/utils/constants.ts"],"names":[],"mappings":"AAAA,MAAM,CAAC,MAAM,OAAO,GAAG,uBAAuB,CAAC","sourcesContent":["export const API_URL = 'http://localhost:8080';\n"]}

@@ -1,9 +1,9 @@
-# SeQura Mocked API
+# Mocked API
 
-SeQura mocked API is a simple `express` server that acts as some of seQura APIs.
+The mocked API is a simple `express` server that acts as some APIs.
 
 Contents:
-- [SeQura Mocked API](#sequra-mocked-api)
+- [Mocked API](#mocked-api)
   - [Starting the server](#starting-the-server)
   - [Credit Agreements API](#credit-agreements-api)
     - [Credit Agreements Request](#credit-agreements-request)
@@ -28,8 +28,8 @@ _API server should be running on http://localhost:8080._
 
 ## Credit Agreements API
 
-- The credit agreement API allows a merchant to get SeQura's credit conditions with a single request.
-- SeQura's credit conditions depend on order value, currency, and merchant.
+- The credit agreement API allows a merchant to get the credit conditions with a single request.
+- Credit conditions depend on order value, currency, and merchant.
 
 ### Credit Agreements Request
 
@@ -82,7 +82,7 @@ Transfer-Encoding: chunked
 
 ## Events API
 
-The events API allows seQura to store different user interactions during the purchase for further analysis.
+The events API allows us to store different user interactions during the purchase for further analysis.
 
 ### Events Request
 `POST <base>/events`

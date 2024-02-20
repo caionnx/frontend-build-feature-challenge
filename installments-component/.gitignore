@@ -1,0 +1,11 @@
+/node_modules/
+/lib/
+/test/
+/utils/
+custom-elements.json
+# top level source
+**.map
+**.d.ts
+**.js
+# only generated for size check
+index.bundled.js
