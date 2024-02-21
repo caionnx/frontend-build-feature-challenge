@@ -2,7 +2,7 @@
 ### [👉 Go to the challenge 👈](./CHALLENGE.md)
 
 ### 🚀 See the feature in action 🚀
-
+https://github.com/caionnx/frontend-build-feature-challenge/assets/12668818/c294e412-d803-4050-85eb-59b86348b623
 
 For extra documentation on the development experience and how to test/lint/formatting and bundle the component, please refer to `installments-component/README.MD`
 
